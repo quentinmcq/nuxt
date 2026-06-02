@@ -83,7 +83,7 @@ export default defineNuxtModule({
 
       const isIgnored = createIsIgnored(nuxt)
       const rootDirs = layerDirs.map(layer => layer.root)
-      const SCHEMA_RE = /(?:^|\/)nuxt.schema.\w+$/
+      const SCHEMA_RE = /(?:^|\/)nuxt\.schema\.\w+$/
       const watcher = watch(rootDirs, {
         ...nuxt.options.watchers.chokidar,
         depth: 1,
