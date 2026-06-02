@@ -126,7 +126,8 @@ function findImportExpression (node: ESTree.Expression | ESTree.FunctionBody): {
     return findImportExpression(node.argument)
   }
   if (node.type === 'ConditionalExpression') {
-    return findImportExpression(node.consequent) || findImportExpression(node.alternate)
+    const consequent = findImportExpression(node.consequent)
+    return consequent.importExpression ? consequent : findImportExpression(node.alternate)
   }
   if (node.type === 'MemberExpression') {
     return findImportExpression(node.object)
