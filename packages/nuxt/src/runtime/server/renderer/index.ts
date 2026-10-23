@@ -44,7 +44,7 @@ const HAS_APP_TELEPORTS = !!(appTeleportTag && appTeleportAttrs.id)
 const APP_TELEPORT_OPEN_TAG = HAS_APP_TELEPORTS ? `<${appTeleportTag}${propsToString(appTeleportAttrs)}>` : ''
 const APP_TELEPORT_CLOSE_TAG = HAS_APP_TELEPORTS ? `</${appTeleportTag}>` : ''
 
-const PAYLOAD_URL_RE = /^[^?]*\/_payload.json(?:\?.*)?$/
+const PAYLOAD_URL_RE = /^[^?]*\/_payload\.json(?:\?.*)?$/
 
 // Bot detection regex for SSR streaming.
 const SSR_BOT_RE: RegExp = NUXT_SSR_STREAMING_BOT_RE

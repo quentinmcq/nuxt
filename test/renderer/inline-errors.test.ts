@@ -165,6 +165,12 @@ describe('inline error rendering', () => {
     await expect(renderer.fetch(createEvent('/throws/_payload.json'))).rejects.toMatchObject({ message: 'the render threw' })
   })
 
+  it('answers a path that only resembles a payload request with the error page', async () => {
+    const { html } = await render('/throws/_payloadXjson')
+
+    expect(html).toContain('<div id="error-page">')
+  })
+
   it('leaves an error the runtime is already rendering its own error page for to the runtime', async () => {
     const renderer = createNuxtRenderer(options)
     const event = createEvent('/throws')
